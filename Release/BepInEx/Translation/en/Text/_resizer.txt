@@ -1,0 +1,4 @@
+[Singleton] - UIManager=ChangeFontSizeByPercentage(0.5)
+-[UI]/TopPanel/StatusPanel/Container/Panels/Property/Buttons/Property/Hover/Text (TMP)=ChangeFontSizeByPercentage(0.5)
+-[UI]/TopPanel/StatusPanel/Container/Panels/Property/Buttons/Property/Normal/Text (TMP)=ChangeFontSizeByPercentage(0.5)
+[UI]/TopPanel/StatusPanel/Container/Buttons/LeftButtons/StatusButton_Property/Enable/Text (TMP)=ChangeFontSizeByPercentage(0.5)

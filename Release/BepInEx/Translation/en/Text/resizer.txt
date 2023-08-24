@@ -1,0 +1,1 @@
+[Singleton] - UIManager=ChangeFontSizeByPercentage(0.5)

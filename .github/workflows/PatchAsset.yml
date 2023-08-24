@@ -1,0 +1,39 @@
+name: PythonPatchAsset
+on: 
+  workflow_dispatch:
+jobs:
+  run_patch_on_windows:
+    runs-on: windows-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.10.11
+
+    - name: Set up Git user
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'        
+    - name: Install UnityPy
+      run: |
+        pip install UnityPy
+
+    - name: Remove resources.assets
+      run: |
+        git rm Release/Mortal_Data/resources.assets     
+
+    - name: Commit removal
+      run: |
+        git commit -m "Remove resources.assets before patching"
+
+    - name: Run patch.py
+      run: python src/patch.py
+
+    - name: Push changes
+      run: |
+        git add Release/*
+        git commit -m "Update resources.assets from Python patch"
+        git push https://github-actions[bot]:${ secrets.GH_TOKEN }@github.com/1ookilo/LoM-Demo-TH
